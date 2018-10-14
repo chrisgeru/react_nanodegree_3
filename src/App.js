@@ -39,13 +39,11 @@ class MentalGame extends Component {
         const areEqual = this.state.correctAnswer === this.state.proposedAnswer;
         const playerAnswer = answer === areEqual;
         console.log(`A soma correta é ${this.state.correctAnswer}. Você ${playerAnswer ? "ACERTOU" : "ERROU"}`);
-        this.setState((previousState) => {
-            return {
-                'numQuestions': previousState.numQuestions + 1,
-                'numCorrect': playerAnswer ? previousState.numCorrect + 1 : previousState.numCorrect,
-                ...returnValues()
-            }
-        })
+        this.setState((previousState) => ({
+            'numQuestions': previousState.numQuestions + 1,
+            'numCorrect': playerAnswer ? previousState.numCorrect + 1 : previousState.numCorrect,
+            ...returnValues()
+        }))
     };
 
     render() {
